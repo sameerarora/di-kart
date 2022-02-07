@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.yml
+    kompose.version: 1.26.1 (a9d05d509)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: tyk-gateway
+  name: tyk-gateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: tyk-gateway
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.yml
+        kompose.version: 1.26.1 (a9d05d509)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/tyk: "true"
+        io.kompose.service: tyk-gateway
+    spec:
+      containers:
+        - env:
+            - name: TYK_GW_SECRET
+              value: foo
+          image: docker.tyk.io/tyk-gateway/tyk-gateway:v3.2.1
+          name: tyk-gateway
+          ports:
+            - containerPort: 8080
+          resources: {}
+          volumeMounts:
+            - mountPath: /opt/tyk-gateway/tyk.conf
+              name: tyk-gateway-claim0
+            - mountPath: /opt/tyk-gateway/apps
+              name: tyk-gateway-claim1
+            - mountPath: /opt/tyk-gateway/middleware
+              name: tyk-gateway-claim2
+            - mountPath: /opt/tyk-gateway/certs
+              name: tyk-gateway-claim3
+      restartPolicy: Always
+      volumes:
+        - name: tyk-gateway-claim0
+          persistentVolumeClaim:
+            claimName: tyk-gateway-claim0
+        - name: tyk-gateway-claim1
+          persistentVolumeClaim:
+            claimName: tyk-gateway-claim1
+        - name: tyk-gateway-claim2
+          persistentVolumeClaim:
+            claimName: tyk-gateway-claim2
+        - name: tyk-gateway-claim3
+          persistentVolumeClaim:
+            claimName: tyk-gateway-claim3
+status: {}

@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: shipping-service
+  name: shipping-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shipping-service
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: shipping-service
+    spec:
+      containers:
+      - image: shipping-service:latest
+        name: shipping-service
+        imagePullPolicy: Never
+        resources: {}
+        env:
+          - name: DB_HOST_NAME
+            value: "mongo-db"
+          - name: KAFKA_BOOTSTRAP_SERVER
+            value: "192.168.99.1:29092"
+status: {}

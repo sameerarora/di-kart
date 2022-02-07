@@ -1,0 +1,24 @@
+{
+  "name": "shipping-service",
+  "version": "1.0.0",
+  "main": "src/app.js",
+  "license": "MIT",
+  "scripts": {
+    "watch-ts": "tsc -w",
+    "watch-node": "nodemon dist/app.js",
+    "watch": "concurrently -k -p \"[{name]\" -n \"Typescript, Node\" -c \"yellow.bold, cyan.bold\" \"yarn run watch-ts\" \"yarn run watch-node\""
+  },
+  "dependencies": {
+    "@types/express": "^4.17.13",
+    "@types/sleep": "^0.0.8",
+    "concurrently": "^7.0.0",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "kafkajs": "^1.15.0",
+    "mathjs": "^10.1.0",
+    "mongoose": "^6.1.7",
+    "sleep": "^6.3.0",
+    "underscore": "^1.13.2"
+  }
+}

@@ -1,0 +1,44 @@
+/*POST http://192.168.99.101:32123//tyk/apis*/
+{
+  "name": "auth-service",
+  "api_id": "1",
+  "org_id": "DI",
+  "use_keyless": true,
+  "version_data": {
+    "not_versioned": true,
+    "versions": {
+      "Default": {
+        "name": "Default",
+        "use_extended_paths": true
+      }
+    }
+  },
+  "proxy": {
+    "listen_path": "/auth-service/",
+    "target_url": "http://192.168.99.101:30007/",
+    "strip_listen_path": true
+  },
+  "active": true
+}
+
+{
+  "name": "order-service",
+  "api_id": "2",
+  "org_id": "DI",
+  "use_keyless": true,
+  "version_data": {
+    "not_versioned": true,
+    "versions": {
+      "Default": {
+        "name": "Default",
+        "use_extended_paths": true
+      }
+    }
+  },
+  "proxy": {
+    "listen_path": "/order-service/",
+    "target_url": "http://192.168.99.101:30007/",
+    "strip_listen_path": true
+  },
+  "active": true
+}

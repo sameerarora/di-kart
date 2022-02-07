@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: shopping-service
+  name: shopping-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shopping-service
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: shopping-service
+    spec:
+      containers:
+      - image: shopping-service:latest
+        name: shopping-service
+        imagePullPolicy: Never
+        resources: {}
+        env:
+          - name: DB_HOST_NAME
+            value: "mongo-db"
+status: {}
