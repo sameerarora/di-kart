@@ -46,10 +46,10 @@ export const addAddress = (req: Request, res: Response) => {
     let address = new Address(req.body);
     User.findOneAndUpdate({username: username}, {address: address}, (err: any, user: any) => {
         if (err) {
-            res.status(500).send(`error occurred while saving user credentials ${err}`);
+            res.status(500).send(`error occurred while updating user address ${err}`);
         } else {
             if (user) {
-                res.status(201).send("Successfully updated user credentials");
+                res.status(201).send("Successfully updated user address");
             } else {
                 res.status(404).send(`user not found with username: ${username}`);
             }

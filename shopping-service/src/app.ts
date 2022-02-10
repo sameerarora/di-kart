@@ -10,6 +10,7 @@ app.use(express.json());
 app.get('/categories', productController.allCategories);
 app.get('/products/:category', productController.productByCategory);
 app.put('/cart', cartController.addToCart);
+app.get('/cart', cartController.getCart);
 
 app.listen(app.get("port"), () => {
     console.log("Starting shopping service....")

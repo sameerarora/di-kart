@@ -4,6 +4,23 @@ import * as jwt from "jsonwebtoken";
 
 const secret = 'secret';
 
+export const getCart = (req:Request, res:Response) => {
+    if (req.headers.authorization) {
+        let decoded = jwt.verify(req.headers.authorization, secret);
+        Cart.findOne({username: decoded}, (err: any, cart: any) => {
+            if (err) {
+                res.status(500).send({"message": `Error occurred while trying to access cart : ${err}`});
+            } else if (cart) {
+                res.status(200).send(cart);
+            } else {
+                new Cart({username: decoded, items: [new Item(req.body)]}).save((err:any) => saveCallback(err, res));
+            }
+        })
+    } else {
+        res.status(401).send({'message': 'Invalid auth info'});
+    }
+}
+
 export const addToCart = (req: Request, res: Response) => {
     if (req.headers.authorization) {
         let decoded = jwt.verify(req.headers.authorization, secret);
