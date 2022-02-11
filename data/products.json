@@ -1,0 +1,73 @@
+[{
+  "_id": {
+    "$oid": "620524b0d5be7a0a654dc178"
+  },
+  "name": "New balance",
+  "price": 2500,
+  "category": "sneakers",
+  "quantity": 100
+},{
+  "_id": {
+    "$oid": "620524fdd5be7a0a654dc179"
+  },
+  "name": "Puma",
+  "price": 1500,
+  "category": "sneakers",
+  "quantity": 20
+},{
+  "_id": {
+    "$oid": "62052511d5be7a0a654dc17a"
+  },
+  "name": "Converse",
+  "price": 2000,
+  "category": "sneakers",
+  "quantity": 10
+},{
+  "_id": {
+    "$oid": "62052525d5be7a0a654dc17b"
+  },
+  "name": "Jabra",
+  "price": 10500,
+  "category": "earphones",
+  "quantity": 15
+},{
+  "_id": {
+    "$oid": "6205254bd5be7a0a654dc17c"
+  },
+  "name": "Sony",
+  "price": 12500,
+  "category": "earphones",
+  "quantity": 150
+},{
+  "_id": {
+    "$oid": "6205255ed5be7a0a654dc17d"
+  },
+  "name": "Sennheiser",
+  "price": 20000,
+  "category": "earphones",
+  "quantity": 5
+},{
+  "_id": {
+    "$oid": "6205257ad5be7a0a654dc17e"
+  },
+  "name": "Macbook Air",
+  "price": 70000,
+  "category": "laptop",
+  "quantity": 3
+},{
+  "_id": {
+    "$oid": "6205259fd5be7a0a654dc17f"
+  },
+  "name": "Dell Vostro",
+  "price": 50000,
+  "category": "laptop",
+  "quantity": 15
+},{
+  "_id": {
+    "$oid": "620525bcd5be7a0a654dc180"
+  },
+  "name": "Hp pavillion",
+  "price": 60000,
+  "category": "laptop",
+  "quantity": 15
+}]
